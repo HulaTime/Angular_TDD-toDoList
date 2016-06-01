@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd app && ../node_modules/http-server/bin/http-server",
+    "webdriver-manager": "./node_modules/protractor/bin/webdriver-manager",
+    "protractor": "./node_modules/protractor/bin/protractor"
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/MaxProvin/Angular_TDD-toDoList/issues"
   },
-  "homepage": "https://github.com/MaxProvin/Angular_TDD-toDoList#readme"
+  "homepage": "https://github.com/MaxProvin/Angular_TDD-toDoList#readme",
+  "dependencies": {
+    "http-server": "^0.9.0",
+    "protractor": "^3.3.0"
+  }
 }
