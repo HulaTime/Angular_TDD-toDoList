@@ -1,31 +1,32 @@
 describe('ToDoController', function() {
   beforeEach(module('toDoApp'));
 
-  var ctrl;
-  var todos;
+  var ctrl, ToDoFactory;
 
-  beforeEach(inject(function($controller) {
+  beforeEach(inject(function($controller, _ToDoFactory_) {
     ctrl = $controller('ToDoController');
-    todos = [
-      {text: "ToDo1", completed: true},
-      {text: "ToDo2", completed: false}
-    ];
+    ToDoFactory = _ToDoFactory_;
   }));
 
-  it('initialises with multiple todos', function() {
-    expect(ctrl.todos).toEqual(todos);
+  it('initialises with several todos', function() {
+    var todo1 = new ToDoFactory("ToDo1", true);
+    var todo2 = new ToDoFactory("ToDo2", false);
+
+    expect(ctrl.todos).toEqual([todo1, todo2]);
   });
 
-  it('has an addToDo function thats adds a todo', function() {
-    ctrl.addToDo('todo');
-    var todo = {text: "todo", completed: false};
-    expect(ctrl.todos[2]).toEqual(todo);
+  it('adds a new todo', function() {
+    ctrl.addToDo('NewToDo');
+
+    var todo = new ToDoFactory("NewToDo");
+    expect(ctrl.todos.pop()).toEqual(todo);
   });
 
-  it('has an removeToDo function thats removes last todo', function() {
+  it('removes the last todo', function() {
+    initialCount = ctrl.todos.length;
+
     ctrl.removeToDo();
-    var todo = {text: "ToDo2", completed: false};
-    expect(ctrl.todos).not.toContain(todo);
-  });
 
+    expect(ctrl.todos.length).toEqual(initialCount - 1);
+  });
 });

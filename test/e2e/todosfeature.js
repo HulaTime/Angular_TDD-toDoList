@@ -1,20 +1,35 @@
-describe('ToDoController', function() {
+describe('Todos tracker', function() {
+  it('has several ToDos', function() {
+    browser.get('/');
+    var todos = $$('#todos p');
+    expect(todos.first().getText()).toMatch('ToDo1: Completed');
+    expect(todos.last().getText()).toMatch('ToDo2: not completed');
+  });
+
   it('can add a ToDo', function() {
     browser.get('/');
-    // sendKeys tells protractor to enter the string "NewToDo" into the input
-    $('#new-todo-name').sendKeys("NewToDo");
+    $('#new-todo-name').sendKeys("NewTodo");
     $('#add-todo').click();
 
     var todo = $$('#todos p').last().getText();
-    expect(todo).toEqual('NewToDo: not completed');
+    expect(todo).toMatch('NewTodo: not completed');
   });
 
-    it('can remove a ToDo', function() {
+  it('can remove a ToDo', function() {
     browser.get('/');
     var todos = $$('#todos p');
+    var initialCount = todos.count();
 
     $('#remove-todo').click();
 
     expect(todos.count()).toEqual(1);
+  });
+
+  it('can mark a ToDo as complete', function(){
+    browser.get('/');
+    var todo = $$('#todos p').last();
+    todo.element(by.css('.complete')).click();
+
+    expect(todo.getText()).toMatch("ToDo2: Completed");
   });
 });
