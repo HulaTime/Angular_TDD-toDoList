@@ -9,8 +9,12 @@
   </head>
   <body>
 
-    <div id="todo" ng-controller="ToDoController as controller">
-      {{ controller.todo }}
+    <div id="todos" ng-controller="ToDoController as controller">
+      <p ng-repeat="todo in controller.todos">
+        {{ todo.text }}: {{ todo.completed ? "Completed" : "not completed"}}
+      </p>
+      <input id='new-todo-name' type='text' placeholder="Enter ToDo" ng-model="toDoText">
+      <button id='add-todo' ng-click="controller.addToDo(toDoText)">Add Task</button>
     </div>
 
   </body>
