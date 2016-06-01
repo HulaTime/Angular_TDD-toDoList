@@ -1,0 +1,20 @@
+{
+  "name": "tdd_todolist",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Max Provin <maxprovin@outlook.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/MaxProvin/Angular_TDD-toDoList",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.6"
+  }
+}
