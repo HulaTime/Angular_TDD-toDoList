@@ -1,0 +1,19 @@
+{
+  "name": "tdd_todolist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxProvin/Angular_TDD-toDoList.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaxProvin/Angular_TDD-toDoList/issues"
+  },
+  "homepage": "https://github.com/MaxProvin/Angular_TDD-toDoList#readme"
+}
