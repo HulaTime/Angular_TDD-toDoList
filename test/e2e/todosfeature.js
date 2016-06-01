@@ -8,4 +8,13 @@ describe('ToDoController', function() {
     var todo = $$('#todos p').last().getText();
     expect(todo).toEqual('NewToDo: not completed');
   });
+
+    it('can remove a ToDo', function() {
+    browser.get('/');
+    var todos = $$('#todos p');
+
+    $('#remove-todo').click();
+
+    expect(todos.count()).toEqual(1);
+  });
 });

@@ -22,4 +22,10 @@ describe('ToDoController', function() {
     expect(ctrl.todos[2]).toEqual(todo);
   });
 
+  it('has an removeToDo function thats removes last todo', function() {
+    ctrl.removeToDo();
+    var todo = {text: "ToDo2", completed: false};
+    expect(ctrl.todos).not.toContain(todo);
+  });
+
 });

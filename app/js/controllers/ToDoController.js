@@ -5,8 +5,11 @@ toDoApp.controller('ToDoController', function() {
 
   self.addToDo = function(text) {
     self.todos.push({text: text, completed: false});
-  }
+  };
 
+  self.removeToDo = function() {
+    self.todos.pop();
+  };
 
 
 });
