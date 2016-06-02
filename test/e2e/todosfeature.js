@@ -39,6 +39,14 @@ describe('Todos tracker', function() {
     expect(todos.getText()).toMatch('ToDo2: not completed');
   });
 
+  it('has a clear all tasks button', function() {
+    browser.get('/');
+    $('#clear-completed').click();
+    var todos = $$('#todos p');
+    expect(todos.getText()).not.toMatch('ToDo1: Completed');
+    expect(todos.getText()).toMatch('ToDo2: not completed');
+  });
+
   it('has several ToDos', function() {
     browser.get('/');
     var todos = $$('#todos p');

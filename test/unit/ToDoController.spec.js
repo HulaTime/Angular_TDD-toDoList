@@ -56,4 +56,14 @@ describe('ToDoController', function() {
     ctrl.showAll()
     expect(ctrl.todos).toEqual([todo1, todo2]);
   });
+
+  it('clear completed todos', function() {
+    var todo1 = new ToDoFactory("ToDo1", true);
+    var todo2 = new ToDoFactory("ToDo2", false);
+    ctrl.inCompleteFilter()
+    ctrl.completeFilter()
+    ctrl.showAll()
+    ctrl.clearCompleted()
+    expect(ctrl.todos).toEqual([todo2]);
+  });
 });
