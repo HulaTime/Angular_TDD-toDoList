@@ -1,4 +1,7 @@
 toDoApp.controller('ToDoController', ['ToDoService', 'ToDoFactory', function(ToDoService, ToDoFactory) {
+
+  // angular.element(document).ready(function () {
+
   var self = this;
 
   ToDoService.getAll().then(function(todos){
@@ -39,9 +42,11 @@ toDoApp.controller('ToDoController', ['ToDoService', 'ToDoFactory', function(ToD
   self.showAll();
   };
 
-  self.counter = function() {
-    return self.todos.length
-  };
+  angular.element(document).ready(function () {
+    self.counter = function() {
+      return self.todos.length
+    };
+  });
 
 }]);
 
