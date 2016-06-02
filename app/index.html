@@ -12,7 +12,9 @@
   <body>
 
     <div id="todos" ng-controller="ToDoController as controller">
+      <button id='all-filter' ng-click="controller.showAll()">Show All</button>
       <button id='complete-filter' ng-click="controller.completeFilter()">Complete Filter</button>
+      <button id='incomplete-filter' ng-click="controller.inCompleteFilter()">Incomplete Filter</button>
       <p ng-repeat="todo in controller.todos">
         {{ todo.text }}: {{ todo.completed ? "Completed" : "not completed"}}
         <span class="complete" ng-click="todo.complete();">Complete</span>

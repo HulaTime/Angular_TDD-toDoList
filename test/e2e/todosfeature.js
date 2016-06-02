@@ -22,6 +22,23 @@ describe('Todos tracker', function() {
     expect(todos.getText()).not.toMatch('ToDo2: not completed');
   });
 
+  it('has a filter to display only incomplete tasks', function() {
+    browser.get('/');
+    $('#incomplete-filter').click();
+
+    var todos = $$('#todos p');
+    expect(todos.getText()).not.toMatch('ToDo1: Completed');
+  });
+
+  it('has a filter to display all tasks', function() {
+    browser.get('/');
+    $('#all-filter').click();
+
+    var todos = $$('#todos p');
+    expect(todos.getText()).toMatch('ToDo1: Completed');
+    expect(todos.getText()).toMatch('ToDo2: not completed');
+  });
+
   it('has several ToDos', function() {
     browser.get('/');
     var todos = $$('#todos p');

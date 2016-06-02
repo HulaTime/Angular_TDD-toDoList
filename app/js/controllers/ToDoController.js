@@ -3,6 +3,7 @@ toDoApp.controller('ToDoController', ['ToDoService', 'ToDoFactory', function(ToD
 
   ToDoService.getAll().then(function(todos){
     self.todos = todos;
+    self.all = todos;
   });
 
   self.addToDo = function(text) {
@@ -14,13 +15,22 @@ toDoApp.controller('ToDoController', ['ToDoService', 'ToDoFactory', function(ToD
   };
 
   self.completeFilter = function() {
+    self.showAll();
     self.todos = self.todos.filter(function(todo) {
       return todo.completed === true
     });
   };
-  // funtion that selects only completed ToDoS
-  // funtion that selects only non-completed ToDoS
-  // funtion that selects all ToDoS
+
+  self.inCompleteFilter = function() {
+    self.showAll();
+    self.todos = self.todos.filter(function(todo) {
+      return todo.completed !== true
+    });
+  };
+
+  self.showAll = function() {
+    self.todos = self.all;
+  };
 
 
 }]);

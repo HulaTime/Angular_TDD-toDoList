@@ -40,4 +40,20 @@ describe('ToDoController', function() {
     ctrl.completeFilter()
     expect(ctrl.todos).toEqual([todo1]);
   });
+
+  it('can select only all incomplete todos', function() {
+    var todo1 = new ToDoFactory("ToDo1", true);
+    var todo2 = new ToDoFactory("ToDo2", false);
+    ctrl.inCompleteFilter()
+    expect(ctrl.todos).toEqual([todo2]);
+  });
+
+  it('all todos', function() {
+    var todo1 = new ToDoFactory("ToDo1", true);
+    var todo2 = new ToDoFactory("ToDo2", false);
+    ctrl.inCompleteFilter()
+    ctrl.completeFilter()
+    ctrl.showAll()
+    expect(ctrl.todos).toEqual([todo1, todo2]);
+  });
 });
