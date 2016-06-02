@@ -32,11 +32,15 @@ toDoApp.controller('ToDoController', ['ToDoService', 'ToDoFactory', function(ToD
     self.todos = self.all;
   };
 
-  self.clearCompleted= function() {
+  self.clearCompleted = function() {
     self.all = self.todos.filter(function(todo) {
       return todo.completed !== true
     });
   self.showAll();
+  };
+
+  self.counter = function() {
+    return self.todos.length
   };
 
 }]);

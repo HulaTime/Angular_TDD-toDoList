@@ -14,6 +14,15 @@ describe('Todos tracker', function() {
     }]);
   });
 
+  it('page displays total no. of tasks', function() {
+    browser.get('/');
+    var num = $$('#task-num');
+    expect(num.getText()).toMatch('2');
+    $('#remove-todo').click();
+    expect(num.getText()).toMatch('1');
+  });
+
+
   it('has a filter to display only completed tasks', function() {
     browser.get('/');
     $('#complete-filter').click();

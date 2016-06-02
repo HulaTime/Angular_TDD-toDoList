@@ -23,6 +23,9 @@
       <button id='add-todo' ng-click="controller.addToDo(toDoText)">Add Task</button>
       <button id="remove-todo" ng-click="controller.removeToDo();">Remove last ToDo</button>
       <button id='clear-completed' ng-click="controller.clearCompleted()">Clear completed</button>
+      <span id="task-num">
+        {{ controller.counter() }}
+      </span>
     </div>
 
   </body>
