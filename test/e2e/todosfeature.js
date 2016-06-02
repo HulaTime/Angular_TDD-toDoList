@@ -14,6 +14,14 @@ describe('Todos tracker', function() {
     }]);
   });
 
+  it('has a filter to display only completed tasks', function() {
+    browser.get('/');
+    $('#complete-filter').click();
+
+    var todos = $$('#todos p');
+    expect(todos.getText()).not.toMatch('ToDo2: not completed');
+  });
+
   it('has several ToDos', function() {
     browser.get('/');
     var todos = $$('#todos p');

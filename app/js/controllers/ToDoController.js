@@ -12,5 +12,16 @@ toDoApp.controller('ToDoController', ['ToDoService', 'ToDoFactory', function(ToD
   self.removeToDo = function() {
     self.todos.pop();
   };
+
+  self.completeFilter = function() {
+    self.todos = self.todos.filter(function(todo) {
+      return todo.completed === true
+    });
+  };
+  // funtion that selects only completed ToDoS
+  // funtion that selects only non-completed ToDoS
+  // funtion that selects all ToDoS
+
+
 }]);
 

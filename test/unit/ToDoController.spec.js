@@ -33,4 +33,11 @@ describe('ToDoController', function() {
 
     expect(ctrl.todos.length).toEqual(initialCount - 1);
   });
+
+  it('can select only all completed todos', function() {
+    var todo1 = new ToDoFactory("ToDo1", true);
+    var todo2 = new ToDoFactory("ToDo2", false);
+    ctrl.completeFilter()
+    expect(ctrl.todos).toEqual([todo1]);
+  });
 });
